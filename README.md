@@ -1,6 +1,7 @@
 
 # HHS Medical Breach Data
 
+## Intro
 The Office for Civil Rights portal at [1] maintains an archive of data 
 describing medical data breaches affecting 500 or more individuals 
 stretching back to 2009. Above the data HHS says the following:
@@ -16,11 +17,19 @@ variables these variables are practically meaningless and a glance at the data s
 Among distinct values of the variable 'location of breached information' are 'Other', 
 'Network Server, Other', and 'Network Server'. A module that automates PostgreSQL database 
 connection and full insertion of the data is included that's viable as is given a PostgreSQL 
-config file. 
+configuration.  
 
-All questions and feedback are welcomed. 
+This project aims to analyze all available HHS medical breach data and also to design a simple 
+database that provides consistent access to the breach data that's been published. R scripts are 
+included that can automate PostgreSQL database updates if used with a scheduler like Cron. 
 
-Data Sources:
+## Database Note 
+Code and documentation about the project's database is intended to make reproducing and verifying 
+the results as seamless as possible. 
+
+All questions, pull requests, and feedback are welcomed. 
+
+## Data Sources:
 
 [1]
 US Dept. of Health and Human Services

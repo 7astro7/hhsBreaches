@@ -3,15 +3,23 @@
 # of 21 September 2020
 # Other modules are responsible for updating the database
 
+# remove archive variable 
+# question to answer: 
+#   what will the sequence be? 
+#   will there be a separate table for type of breach and location of breached information?
+
 library(dplyr)
 source("ogCleaning.R")
+source("dbc.R")
 
 # sources original data from ogCleaning.R module
-# additions to data are incremental after this initial upload
+# additions to data are incremental after this initial 
+# upload (cron job) 
+# method from ogCleaning.R returning tidy data
 data <- getOgData()
 
-# no arguments b/c config file sets connetion params
-conn <- DBI::dbConnect(RPostgres::Postgres())
+# method from dbc.R returning connection object
+conn <- getPGDBConn()
 
 # no foreign key specified because only one table is needed 
 # at current stage of analysis
@@ -27,9 +35,11 @@ query <- conn %>% DBI::dbSendQuery(
     location_of_breached_information VARCHAR, 
     web_description VARCHAR, 
     business_associate_present SMALLINT, 
-    archive SMALLINT
-    );") %>% 
-    DBI::dbClearResult() 
+    archive SMALLINT DEFAULT 0
+    );") 
+    
+query %>% 
+DBI::dbClearResult() 
 
 # appends rows to table, closes connection
 DBI::dbWriteTable(conn, "data_breach", data, append = TRUE)
