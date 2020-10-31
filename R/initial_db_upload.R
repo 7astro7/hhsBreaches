@@ -16,14 +16,14 @@ source("dbc.R")
 # additions to data are incremental after this initial 
 # upload (cron job) 
 # method from ogCleaning.R returning tidy data
-data <- getOgData()
+data = getOgData()
 
 # method from dbc.R returning connection object
-conn <- getPGDBConn()
+conn = getPGDBConn()
 
 # no foreign key specified because only one table is needed 
 # at current stage of analysis
-query <- conn %>% DBI::dbSendQuery( 
+query = conn %>% DBI::dbSendQuery( 
     "CREATE TABLE IF NOT EXISTS data_breach (
     breach_id SERIAL PRIMARY KEY, 
     name_of_covered_entity VARCHAR, 

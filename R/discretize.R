@@ -1,7 +1,7 @@
 
 library(dplyr)
 
-discretize <- function(df, col_string) {
+discretize = function(df, col_string) {
     # gets the discretized (or as close to discretized as is needed, 
     # some have slashes) elements of the column with name col_string.
     # col_string is used because the column isn't selectable otherwise 
@@ -14,7 +14,7 @@ discretize <- function(df, col_string) {
     # whole list. row values are effectively atomic at this point and so 
     # the larger-scope list is passed as input to unlist, returning 
     # a list with one layer of redundant nesting removed 
-    distinct_and_split_col <- df %>% 
+    distinct_and_split_col = df %>% 
                 select(all_of(col_string)) %>% 
                 distinct() %>% 
                 lapply(as.character) %>%
@@ -29,17 +29,17 @@ discretize <- function(df, col_string) {
     # relevant elements at index 1 is used 
     # whitespace is removed from the elements and each is made 
     # lowercase for standardization
-    discretized_col <- distinct_and_split_col[[1]] %>% 
+    discretized_col = distinct_and_split_col[[1]] %>% 
                 str_trim() %>% 
                 str_to_lower()
 
     # unique is assigned the set of discrete elements found in the 
     # vector. NA may be contained in the set
-    unique <- c()
+    unique = c()
     for (i in 1:length(discretized_col)) {
-        distinct_element <- !(discretized_col[i] %in% unique)
+        distinct_element = !(discretized_col[i] %in% unique)
         if (distinct_element) {
-            unique[length(unique) + 1] <- discretized_col[i]
+            unique[length(unique) + 1] = discretized_col[i]
         }
     }
     return (unique)
