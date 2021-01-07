@@ -1,0 +1,4 @@
+{
+    "search_us": "https://gs.statcounter.com/search-engine-market-share/all/chart.php?device=Desktop%20%26%20Mobile%20%26%20Tablet%20%26%20Console&device_hidden=desktop%2Bmobile%2Btablet%2Bconsole&multi-device=true&statType_hidden=search_engine&region_hidden=US&granularity=monthly&statType=Search%20Engine&region=United%20States%20of%20America&fromInt=200901&toInt=202011&fromMonthYear=2009-01&toMonthYear=2020-11&csv=1",
+    "search_ww": "https://gs.statcounter.com/chart.php?device=Desktop%20%26%20Mobile%20%26%20Tablet%20%26%20Console&device_hidden=desktop%2Bmobile%2Btablet%2Bconsole&multi-device=true&statType_hidden=search_engine&region_hidden=ww&granularity=monthly&statType=Search%20Engine&region=Worldwide&fromInt=200901&toInt=202011&fromMonthYear=2009-01&toMonthYear=2020-11&csv=1"
+}
