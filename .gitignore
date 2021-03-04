@@ -3,5 +3,7 @@
 TODO/
 .envs/
 *.Rout
-
-
+geckodriver.log
+.venv
+__pycache__
+*.pyc
