@@ -1,9 +1,0 @@
-{% if breaches_by_state %}
-    <ul>
-    {% for breach in breaches_by_state %}
-        <li><a href="/map_breaches/{{ breach.state }}/">{{ breach.name_of_covered_entity }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No breachybois are available.</p>
-{% endif %}
